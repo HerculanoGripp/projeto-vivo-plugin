@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+		xmlns="http://apache.org/cordova/ns/plugins/1.0"
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		id="com.hutchind.cordova.plugins.launcher"
+		version="0.2.2">
+
+	<name>ProjetoVivoPlugin</name>
+
+	<description>
+		Plugin Projeto Vivo
+	</description>
+
+	<license>MIT</license>
+
+	<engines>
+			<engine name="cordova" version=">=3.0.0" />
+	</engines>
+
+	<js-module src="www/Launcher.js" name="Launcher">
+			<clobbers target="plugins.launcher" />
+	</js-module>
+
+	<!-- android -->
+	<platform name="android">
+			<config-file target="res/xml/config.xml" parent="/*">
+				<feature name="Launcher">
+						<param name="android-package" value="br.com.uaiti.cordova.plugins.vivo" />
+				</feature>
+			</config-file>
+			<source-file src="src/android/ProjetoVivoPlugin.java" target-dir="src/br/com/uaiti/cordova/plugins/vivo/ProjetoVivoPlugin" />			
+	</platform>
+</plugin>
