@@ -25,7 +25,7 @@
 	<platform name="android">
 			<config-file target="res/xml/config.xml" parent="/*">
 				<feature name="ProjetoVivo">
-						<param name="android-package" value="br.com.uaiti.cordova.plugins.vivo" />
+						<param name="android-package" value="br.com.uaiti.cordova.plugins.vivo.ProjetoVivoPlugin" />
 				</feature>
 			</config-file>
 			<source-file src="src/android/ProjetoVivoPlugin.java" target-dir="src/br/com/uaiti/cordova/plugins/vivo/ProjetoVivoPlugin" />			
