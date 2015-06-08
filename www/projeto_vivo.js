@@ -10,14 +10,14 @@
 		options = options || {};
 		options.successCallback = options.successCallback || successCallback;
 		options.errorCallback = options.errorCallback || errorCallback;
-		cordova.exec(options.successCallback || null, options.errorCallback || null, "ProjetoVivoPlugin", "getLaunchers", [options]);
+		cordova.exec(options.successCallback || null, options.errorCallback || null, "ProjetoVivo", "getLaunchers", [options]);
 	};
 
 	PluginVivo.prototype.launchApp = function(options, successCallback, errorCallback) {
 		options = options || {};
 		options.successCallback = options.successCallback || successCallback;
 		options.errorCallback = options.errorCallback || errorCallback;
-		cordova.exec(options.successCallback || null, options.errorCallback || null, "ProjetoVivoPlugin", "launchApp", [options]);
+		cordova.exec(options.successCallback || null, options.errorCallback || null, "ProjetoVivo", "launchApp", [options]);
 	};
 
 	PluginVivo.install = function() {
