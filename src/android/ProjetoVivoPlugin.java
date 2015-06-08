@@ -71,18 +71,18 @@ public class ProjetoVivoPlugin extends CordovaPlugin {
 			JSONObject appToLaunch = args.getJSONObject(0);
 			Log.d(TAG,"AppToLaunch: " + appToLaunch);
 
-			if(!appToLaunch.has(PACKAGE_NAME) || !appToLaunch,has(ACTIVITY_NAME)){
+			if(!appToLaunch.has(PACKAGE_NAME) || !appToLaunch.has(ACTIVITY_NAME)){
 				callbackContext.error("launchApp json inválido.");
 				return false;	
 			}			
 			
 			//Faz um validação do app a ser lançado
-			if(!appInstalled(this.cordova.getActivity(),appToLaunch.get("packageName"))){
+			if(!appInstalled(this.cordova.getActivity().getApplicationContext(), appToLaunch.get("packageName"))){
 				callbackContext.error("Aplicativo selecionado não está instalado");
 			}
 
 			Intent launcher = new Intent(Intent.ACTION_MAIN);
-	        launcher.setClassName(appToLaunch.get(PACKAGE_NAME), appToLaunch.get(ACTIVITY_NAME));
+	        launcher.setClassName(appToLaunch.getString(PACKAGE_NAME), appToLaunch.getString(ACTIVITY_NAME));
 	        this.cordova.getActivity().startActivity(launcher);
 
 	        callbackContext.success();
