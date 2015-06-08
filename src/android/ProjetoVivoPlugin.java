@@ -5,9 +5,15 @@ import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CordovaInterface;
 
+import java.util.List;
+import java.lang.Object;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.content.Context;
 import android.util.Log;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,8 +45,7 @@ public class ProjetoVivoPlugin extends CordovaPlugin {
 	}
 	@Override
 	public boolean execute(final String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-		final int duration = Toast.LENGTH_SHORT;
-		// Shows a toast
+
 		Log.v(TAG,"ProjetoVivoPlugin received:"+ action);
 
 		if(action.equals(ACTION_GET_LAUCNCHERS)){
@@ -61,8 +66,10 @@ public class ProjetoVivoPlugin extends CordovaPlugin {
 				return false;
 			}
 
-			JSONObject appToLaunch = new JSONObject();
+			Log.d(TAG,"Args: " + args);
+			Object appToLaunch = new Object();
 			appToLaunch = args.get(0);
+			Log.d(TAG,"AppToLaunch: " + appToLaunch);
 
 			//Faz um validação do app a ser lançado
 			if(!appInstalled(this.cordova.getActivity(),appToLaunch.get("packageName"))){
@@ -77,7 +84,7 @@ public class ProjetoVivoPlugin extends CordovaPlugin {
 			return true;
 		}
 
-		CallbackContext.error("Ação selecionada não está definida neste plugin");
+		callbackContext.error("Ação selecionada não está definida neste plugin");
 		return false;
 	}
 
