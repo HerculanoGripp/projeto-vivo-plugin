@@ -77,7 +77,7 @@ public class ProjetoVivoPlugin extends CordovaPlugin {
 			}			
 			
 			//Faz um validação do app a ser lançado
-			if(!appInstalled(this.cordova.getActivity().getApplicationContext(), appToLaunch.get("packageName"))){
+			if(!appInstalled(this.cordova.getActivity().getApplicationContext(), appToLaunch.getString(PACKAGE_NAME))){
 				callbackContext.error("Aplicativo selecionado não está instalado");
 			}
 
