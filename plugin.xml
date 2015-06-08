@@ -2,8 +2,8 @@
 <plugin
 		xmlns="http://apache.org/cordova/ns/plugins/1.0"
 		xmlns:android="http://schemas.android.com/apk/res/android"
-		id="com.hutchind.cordova.plugins.launcher"
-		version="0.2.2">
+		id="br.com.uaiti.cordova.plugins.vivo"
+		version="0.0.1">
 
 	<name>ProjetoVivoPlugin</name>
 
@@ -17,14 +17,14 @@
 			<engine name="cordova" version=">=3.0.0" />
 	</engines>
 
-	<js-module src="www/Launcher.js" name="Launcher">
-			<clobbers target="plugins.launcher" />
+	<js-module src="www/projeto_vivo.js" name="ProjetoVivo">
+			<clobbers target="plugins.projeto_vivo" />
 	</js-module>
 
 	<!-- android -->
 	<platform name="android">
 			<config-file target="res/xml/config.xml" parent="/*">
-				<feature name="Launcher">
+				<feature name="ProjetoVivo">
 						<param name="android-package" value="br.com.uaiti.cordova.plugins.vivo" />
 				</feature>
 			</config-file>

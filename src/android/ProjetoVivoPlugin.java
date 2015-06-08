@@ -51,13 +51,13 @@ public class ProjetoVivoPlugin extends CordovaPlugin {
 				return false;
 			}
 
-			callbackContext.sucess(launchers);			
+			callbackContext.success(launchers);			
 			return true;
 		}
 
-		if(action.equals("launchApp")){
+		if(action.equals(ACTION_LAUNCH_APP)){
 			if(args.length() != 1){				
-				callbackContext.error("Selecioane apenas um aplicativo");
+				callbackContext.error("Selecione apenas um aplicativo");
 				return false;
 			}
 
@@ -77,7 +77,7 @@ public class ProjetoVivoPlugin extends CordovaPlugin {
 			return true;
 		}
 
-		CallbackContext.error("Ação selecionado não está definida neste plugin");
+		CallbackContext.error("Ação selecionada não está definida neste plugin");
 		return false;
 	}
 
